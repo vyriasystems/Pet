@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body {
+  background: #f2f3f3;
+  color: #2a1228;
+}
+
+::selection {
+  background: #f1657c;
+  color: #2a1228;
+}
+
+:focus-visible {
+  outline: 3px solid #c93a5e;
+  outline-offset: 3px;
+}
+
+.font-display {
+  letter-spacing: 0.02em;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter {
+  animation: hero-enter 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-enter-delay {
+  animation-delay: 0.12s;
+}
+
+.hero-enter-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.bg-stars {
+  background-image: radial-gradient(rgba(98, 52, 91, 0.16) 1px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.bg-stars-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit-spin {
+  animation: orbit-spin 60s linear infinite;
+}
+
+/* Mesma duração do .orbit-spin: anula a rotação e mantém os ícones de pé. */
+.orbit-counter {
+  animation: orbit-spin 60s linear infinite reverse;
+}
